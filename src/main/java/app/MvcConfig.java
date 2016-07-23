@@ -5,7 +5,10 @@
  */
 package app;
 
+import app.interceptors.AppLogsInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -15,6 +18,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(appLogsInterceptor());
+    }
+
+    @Bean
+    public AppLogsInterceptor appLogsInterceptor() {
+        return new AppLogsInterceptor();
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
