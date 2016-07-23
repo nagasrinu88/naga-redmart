@@ -8,6 +8,8 @@ package app.util;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,7 +60,6 @@ public class AppUtil {
             Logger.getLogger(AppUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hashtext;
-
     }
 
 }

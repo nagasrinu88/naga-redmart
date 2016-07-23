@@ -5,18 +5,31 @@
  */
 package app.controllers;
 
-import org.springframework.stereotype.Controller;
+import app.scripts.Script;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author NavNag
  */
-@Controller
+@RestController
+@RequestMapping("/app")
 public class AppController {
 
-    @RequestMapping(value = "/register")
+    @Autowired
+    public Script script;
+
+    @RequestMapping(value = "/setup")
     public String register() {
-        return "home";
+        try {
+            script.createProducts();
+            script.createVehicals();
+            script.createOrders();
+        } catch (Exception e) {
+            return "already setup completed";
+        }
+        return "application is setup successfully";
     }
 }

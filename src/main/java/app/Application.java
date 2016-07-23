@@ -5,6 +5,9 @@
  */
 package app;
 
+import app.db.Order;
+import app.scripts.Script;
+import app.services.SlotService;
 import app.util.AppUtil;
 import java.util.Arrays;
 import org.springframework.boot.SpringApplication;
