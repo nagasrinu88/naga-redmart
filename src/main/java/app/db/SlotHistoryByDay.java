@@ -105,8 +105,8 @@ public class SlotHistoryByDay implements Serializable {
     public Slot book(int count) {
         Slot slotObj = null;
         Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR_OF_DAY, 18);
-        c.set(Calendar.MINUTE, 1);
+        //c.set(Calendar.HOUR_OF_DAY, 18);
+        //c.set(Calendar.MINUTE, 1);
         MyCalendar cal = new MyCalendar(c);
         // getting the slot based on the time
         AppSettingsImpl.AvailableSlots slot = AppSettingsImpl.AvailableSlots.getByTime(cal);
